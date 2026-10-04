@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  GPXApi:
+    Type: AWS::Serverless::Function
+
+    Properties:
+      Runtime: python3.12
+      Handler: app.main.handler
+      CodeUri: .
+
+      Timeout: 30
+      MemorySize: 512
+
+      Environment:
+        Variables:
+          DATABASE_URL: ""
+
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
