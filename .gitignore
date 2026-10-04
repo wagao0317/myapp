@@ -1,2 +1,14 @@
 node_modules/
+
+# Secrets
 .env
+.env.*
+client_secret*.json
+token.json
+
+# Build / env artifacts
+.aws-sam/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
